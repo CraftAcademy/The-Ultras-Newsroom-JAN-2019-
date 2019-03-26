@@ -3,6 +3,11 @@ class Journalist::ArticlesController < ApplicationController
     before_action :authenticate_user!
     before_action :check_author, only: [:edit, :destroy, :update]
 
+    def index
+        @articles = Article.all.where(user_id: current_user.id)
+        @notapproved = Article.all.where(user_id: current_user.id, approved: false) 
+    end
+
     def show
         @article = Article.find(params[:id])
     end
