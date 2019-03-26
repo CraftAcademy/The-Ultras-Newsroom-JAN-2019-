@@ -1,3 +1,5 @@
+  <%= link_to "Create Article", new_journalist_article_path%>
+  
   <h1>Unpublished articles</h1>
       <% @notapproved.each do |article|%>
         <div id="<%= dom_id(article) %>">
