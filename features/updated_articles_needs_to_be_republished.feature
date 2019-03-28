@@ -33,7 +33,7 @@ Feature: Editor can publish articles
         And I visit the "Ancient viking grave discovered" page
         And I click "Edit"
         And I fill in "Title" with "Ancient viking grave discovered yesterday"
-        And I click "Update Article"
+        And I click "Update article"
         Then I should see "Article was successfully updated."
         When I visit the site
         Then I should not see "Ancient viking grave discovered yesterday"
