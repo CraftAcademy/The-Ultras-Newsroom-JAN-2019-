@@ -25,6 +25,9 @@
             <p class="text-grey-darker text-base">
               <%= article.lead %>
             </p>
+            <p class="text-grey-darker text-base">
+              <%= image_tag article.image, style: 'height:auto;width:auto;' if article.image.attached? %>
+            </p>
           </div>
         </div>
       <% end %>

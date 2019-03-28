@@ -12,5 +12,9 @@
     <strong><%= t :text, scope: 'titles' %></strong>
     <%= @article.content %>
 </p>
+
+<p>
+    <%= image_tag @article.image, style: 'height:30%;width:30%;' if @article.image.attached? %>
+</p>
 <%= link_to t('edit', scope: 'links'), edit_journalist_article_path %>
 <%= link_to t('back', scope: 'links'), journalist_articles_path %>

@@ -7,13 +7,13 @@
   <div class="lead">
     <%= @article.lead %>
   </div>
-    
+  
   <div class="article-content">
     <p>
       <%= @article.content %>
     </p>
   </div>
-  
+<%= image_tag @article.image, style: 'height:30%;width:30%;' if @article.image.attached? %>
 </div>
-
+ 
 <%= link_to t('back', scope: 'links'), :back %>

@@ -32,5 +32,16 @@ module TheUltrasNewsRoomJan2019
     config.i18n.available_locales = [:sv, :en]
     config.i18n.default_locale = :en
     config.generators.system_tests = nil
+
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', 
+          headers: :any, 
+          methods: %i[get post put delete],
+          expose: %w(access-token expiry token-type uid client),
+          max_age: 0
+      end
+    end
   end
 end
