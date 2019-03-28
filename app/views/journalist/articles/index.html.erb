@@ -1,37 +1,27 @@
-  <%= link_to "Create Article", new_journalist_article_path%>
+<%= link_to "Create Article", new_journalist_article_path%>
   
-  <h1>Unpublished articles</h1>
-      <% @notapproved.each do |article|%>
-        <div id="<%= dom_id(article) %>">
-            <%=  link_to(journalist_article_path(article)) do %>
-            <div class="max-w-sm rounded overflow-hidden shadow-lg">
-                <div class="px-6 py-4">
-                    <div class="font-bold text-xl mb-2">
-                        <%= article.title %>
-                    </div>
-                    <p class="text-grey-darker text-base">
-                        <%= article.lead %>
-                    </p>
-                </div>
+<h1>Unpublished articles</h1>
+<ul class="unpublished_list">
+    <% @notapproved.each do |article|%>
+        <li>
+            <div id="<%= dom_id(article) %>">
+                <%=  link_to(journalist_article_path(article)) do %>
+                    <%= article.title %>
+                <% end %>
             </div>
-            <% end %>
-        </div>
+        </li>
     <% end %>
-  
-  <h1>Published articles</h1>  
+</ul>
+
+<h1>Published articles</h1>  
+<ul class="published_list">
     <% @articles.approved.each do |article|%>
-        <div id="<%= dom_id(article) %>">
-            <%=  link_to(journalist_article_path(article)) do %>
-            <div class="max-w-sm rounded overflow-hidden shadow-lg">
-                <div class="px-6 py-4">
-                    <div class="font-bold text-xl mb-2">
-                        <%= article.title %>
-                    </div>
-                    <p class="text-grey-darker text-base">
-                        <%= article.lead %>
-                    </p>
-                </div>
+        <li>
+            <div id="<%= dom_id(article) %>">
+                <%=  link_to(journalist_article_path(article)) do %>
+                    <%= article.title %>                   
+                <% end %>
             </div>
-            <% end %>
-        </div>
+        </li>
     <% end %>
+</ul>

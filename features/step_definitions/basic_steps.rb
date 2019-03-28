@@ -11,6 +11,10 @@ Given("I visit the editor page") do
     visit editor_articles_path
 end  
 
+Given("I visit the journalist page") do
+    visit journalist_articles_path
+end  
+
 When("I visit the journalist new article page") do
     visit new_journalist_article_path
 end
