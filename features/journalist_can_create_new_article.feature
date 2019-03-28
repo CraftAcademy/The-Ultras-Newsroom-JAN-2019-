@@ -9,6 +9,12 @@ Feature: Journalist can create articles
             | email           | password | role       |
             | jocke@craft.se  | password | journalist |
             | alecia@craft.se | password | visitor    |
+        And the following categories exist
+            | name         |
+            | lifestyle    |
+            | breakingnews |
+            | politics     |
+            | sports       |
         And I am logged in as "jocke@craft.se"
 
     Scenario: Journalist can create article
@@ -16,6 +22,7 @@ Feature: Journalist can create articles
         And I fill in "Title" with "Vikings living amongst us"
         And I fill in "Lead" with "Hurra"
         And I fill in "Content" with "Vad kul"
+        And I select "lifestyle"
         And I click "Save article"
         Then I should see "Article was successfully created."
 

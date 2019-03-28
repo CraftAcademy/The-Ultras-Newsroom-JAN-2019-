@@ -15,6 +15,12 @@ When("I visit the journalist new article page") do
     visit new_journalist_article_path
 end
 
+Given("the following categories exist") do |table|
+    table.hashes.each do |category|
+        Category.create(category)
+    end        
+end
+
 Given("the following articles exist") do |table|
     table.hashes.each do |article|
         user = User.find_by(email: article[:user])
@@ -52,3 +58,8 @@ end
 When("wait for {int} seconds") do |int|
     sleep int
 end
+
+When("I select {string}") do |category|
+    select category, from: 'article_category_ids'
+end
+  
