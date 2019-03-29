@@ -42,3 +42,11 @@ body {
 .article-content {
     @apply m-32 text-2xl;
 }
+
+.journalist_articles_list {
+    @apply text-center list-reset;
+}
+
+.journalist_articles_list_items {
+    @apply m-2;
+}

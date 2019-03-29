@@ -19,7 +19,7 @@ class Journalist::ArticlesController < ApplicationController
         article = Article.new(article_params)
         article.user = current_user
         if article.save
-            redirect_to new_journalist_article_path, notice: 'Article was successfully created.'
+            redirect_to journalist_articles_path, notice: 'Article was successfully created.'
         else
             redirect_to new_journalist_article_path, alert: 'You have to fill out all the fields'
         end
@@ -38,12 +38,12 @@ class Journalist::ArticlesController < ApplicationController
     def destroy
         if params[:deleteimage] == "true"
             @article.image.destroy
-            redirect_to articles_path, notice: 'Image was successfully deleted.'
+            redirect_to journalist_articles_path, notice: 'Image was successfully deleted.'
         else
             if @article.destroy
-                redirect_to articles_path, notice: 'Article was successfully deleted.'
+                redirect_to journalist_articles_path, notice: 'Article was successfully deleted.'
             else
-                redirect_to articles_path, notice: 'Article was not successfully deleted.'
+                redirect_to journalist_articles_path, notice: 'Article was not successfully deleted.'
             end
         end
     end
