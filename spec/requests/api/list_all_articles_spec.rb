@@ -7,7 +7,6 @@ describe "Get /api/articles" do
     
     it "returns a collection of 5 articles" do
         get '/api/articles', headers: headers
-    
-        expect(JSON.parse(response.body).count).to eq 5
+        expect(JSON.parse(response.body)['articles'].count).to eq 5
     end
 end
