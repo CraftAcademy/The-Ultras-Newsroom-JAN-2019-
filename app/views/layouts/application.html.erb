@@ -5,19 +5,22 @@
     <title>TheUltrasNewsroomJan2019</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Crimson+Text', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application' %>
     <%= stylesheet_pack_tag 'application' %>
+    <script src="https://js.stripe.com/v3"></script>
   </head>
   <body>
     <%= link_to_unless_current "English", locale: 'en' %>
     <%= link_to_unless_current "Svenska", locale: 'sv' %>
+    <%= link_to ('Subscribe'), new_subscription_path %>
     <%= notice || alert %>
     <%= yield %>
     <% if user_signed_in? %>
-      <%= link_to t('signout'), destroy_user_session_path, method: :delete %>
+      <%= link_to t('signout', scope: 'links'), destroy_user_session_path, method: :delete %>
     <% else %>
-      <%= link_to t('login'), new_user_session_path, method: :new %>
+      <%= link_to t('login', scope: 'links'), new_user_session_path, method: :new %>
     <% end %>
   </body>
 </html>

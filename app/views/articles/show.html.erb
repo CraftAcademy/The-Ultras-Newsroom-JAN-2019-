@@ -1,15 +1,19 @@
 <div class="article-show">
-<p>
-    <strong>Title:</strong>
+    
+  <div class="title-show">
     <%= @article.title %>
-</p>
-<p>
-    <strong></strong>
+  </div>      
+      
+  <div class="lead">
     <%= @article.lead %>
-</p>
-<p>
-    <%= @article.content %>
-</p>
+  </div>
+  
+  <div class="article-content">
+    <p>
+      <%= @article.content %>
+    </p>
+  </div>
+<%= image_tag @article.image, style: 'height:30%;width:30%;' if @article.image.attached? %>
 </div>
-
-<%= link_to "Back", :back %>
+ 
+<%= link_to t('back', scope: 'links'), :back %>

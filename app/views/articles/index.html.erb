@@ -4,11 +4,11 @@
 <div class="flex justify-center pt-2 border-b-2 pb-2">
   <ul class="list-reset flex">
     <li class="mx-2">
-      <%= link_to 'All', articles_path %>
+      <%= link_to t('all', scope: 'links'), articles_path %>
     </li>
     <% @categories.each do |category| %>
       <li class="mx-2">
-        <%= link_to category.name, articles_path(params: {category: category.name}) %>
+        <%= link_to t(category.name, scope: 'categories'), articles_path(params: {category: category.name}) %>
       </li>
     <% end %>
   </ul>
@@ -24,6 +24,9 @@
             </div>
             <p class="text-grey-darker text-base">
               <%= article.lead %>
+            </p>
+            <p class="text-grey-darker text-base">
+              <%= image_tag article.image, style: 'height:auto;width:auto;' if article.image.attached? %>
             </p>
           </div>
         </div>

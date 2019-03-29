@@ -23,7 +23,7 @@ Feature: Journalist can edit and delete articles
         And I visit the "Voted best mead recipe" page
         And I click "Edit"
         And I fill in "Title" with "Voted worst mead recipe"
-        And I click "Update Article"
+        And I click "Update article"
         Then I should see "Article was successfully updated."
 
     @javascript

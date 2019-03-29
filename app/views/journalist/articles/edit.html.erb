@@ -1,4 +1,4 @@
-<h1>Edit article</h1>
+<h1><%= t :editarticle, scope: 'titles' %></h1>
  
 <%= form_with model: @article, url: journalist_article_path(@article), local: true do |form| %>
     <p>
@@ -14,20 +14,32 @@
     <p>
         <%= form.label :content %><br>
         <%= form.text_area :content %>
-    </p>
- 
+    </p> 
     <p>
         <%= form.submit %>
     </p>
 
+    <p>
+        <%= form.file_field :image %>
+    </p>
     <p> 
-        <%= link_to 'Delete', 
+        <%= link_to t('delete', scope: 'links'), 
             journalist_article_path(@article), 
                 method: :delete,
                 data: { confirm: 'Are you sure?' } 
         %>     
-    </p>
-        
+    </p> 
+
+    <% if @article.image.attached? == true %>
+    <p> 
+        <%= link_to 'Delete Image', 
+            journalist_article_path(@article, deleteimage: true), 
+                method: :delete,
+                data: { confirm: 'Are you sure?' }
+        %>     
+    </p>   
+    <% else %>
+        <% false %>
+    <% end %>    
 <% end %>
- 
-<%= link_to 'Back', :back %>
+<%= link_to t('back', scope: 'links'), journalist_article_path %>

@@ -10,6 +10,10 @@ h1 {
     @apply leading-loose;
 }
 
+.article-show {
+    @apply text-center;
+}
+
 .back {
     @apply ml-6;
 }
@@ -21,4 +25,20 @@ h1 {
     grid-row-gap: 30px;
     grid-column-gap: 50px;
     @apply justify-center mt-6;
+}
+
+body {
+    @apply bg-white font-serif;
+}
+
+.title-show {
+    @apply text-8xl uppercase mt-24 border-b-2;
+}
+
+.lead {
+    @apply font-bold mt-16 text-2xl;
+}
+
+.article-content {
+    @apply m-32 text-2xl;
 }

@@ -27,6 +27,8 @@ class Journalist::ArticlesController < ApplicationController
 
     def update
         if @article.update(article_params)
+            @article.approved = false
+            @article.save
             redirect_to journalist_article_path, notice: 'Article was successfully updated.'
         else
             redirect_to @article, notice: 'Article was not updated.'
@@ -34,10 +36,15 @@ class Journalist::ArticlesController < ApplicationController
     end
 
     def destroy
-        if @article.destroy
-            redirect_to articles_path, notice: 'Article was successfully deleted.'
+        if params[:deleteimage] == "true"
+            @article.image.destroy
+            redirect_to articles_path, notice: 'Image was successfully deleted.'
         else
-            redirect_to articles_path, notice: 'Article was not successfully deleted.'
+            if @article.destroy
+                redirect_to articles_path, notice: 'Article was successfully deleted.'
+            else
+                redirect_to articles_path, notice: 'Article was not successfully deleted.'
+            end
         end
     end
 
@@ -61,6 +68,6 @@ class Journalist::ArticlesController < ApplicationController
     end
 
     def article_params
-        params.require(:article).permit(:title, :content, :lead)
+        params.require(:article).permit(:title, :content, :lead, :image)
     end 
 end

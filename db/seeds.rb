@@ -6,21 +6,21 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(email: "journalist@mail.se", password: "password", role: "journalist")
+user = User.create(email: "journalist@mail.se", password: "password", role: "journalist")
 User.create(email: "visitor@mail.se", password: "password", role: "visitor")
 User.create(email: "editor@mail.se", password: "password", role: "editor")
 
-category_1 = Category.create(name: "Lifestyle")
-category_2 = Category.create(name: "Breaking News")
-category_3 = Category.create(name: "Politics")
-category_4 = Category.create(name: "Health")
-category_5 = Category.create(name: "Sport")
+category_1 = Category.create(name: "lifestyle")
+category_2 = Category.create(name: "breakingnews")
+category_3 = Category.create(name: "politics")
+category_4 = Category.create(name: "health")
+category_5 = Category.create(name: "sports")
 
-article_1 = Article.create(title: "Voted best mead recipe", lead: "Restaurant wins prize", content: "Restaurant wins prize for best mead in Sweden")
-article_2 = Article.create(title: "Ancient viking grave discovered", lead: "Kids came across sword", content: "Kids come across sword protruding from the earth")
-article_3 = Article.create(title: "New Prime Minister", lead: "Today is a new day", content: "The country is on a better path")
-article_4 = Article.create(title: "Drinking wine improves general health", lead: "Drink wine today!", content: "Studies show that wine is good for your heart")
-article_5 = Article.create(title: "Hammarby! Hammarby!", lead: "Best team ever!", content: "Home is where the heart is")
+article_1 = Article.create(title: "Voted best mead recipe", lead: "Restaurant wins prize", content: "Restaurant wins prize for best mead in Sweden", user: user)
+article_2 = Article.create(title: "Ancient viking grave discovered", lead: "Kids came across sword", content: "Kids come across sword protruding from the earth", user: user)
+article_3 = Article.create(title: "New Prime Minister", lead: "Today is a new day", content: "The country is on a better path", user: user)
+article_4 = Article.create(title: "Drinking wine improves general health", lead: "Drink wine today!", content: "Studies show that wine is good for your heart", user: user)
+article_5 = Article.create(title: "Hammarby! Hammarby!", lead: "Best team ever!", content: "Home is where the heart is", user: user)
 
 article_1.categories << category_1
 article_2.categories << category_2

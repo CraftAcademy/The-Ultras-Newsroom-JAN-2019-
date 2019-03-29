@@ -1,4 +1,33 @@
 en:
-  signout: Sign out
-  login: Log in
-  back: Back
+  titles:
+    editarticle: Edit Article
+    title: Title
+    lead: Lead
+    content: Content
+
+  links:
+    signout: Sign out
+    login: Log in
+    back: Back
+    all: All
+    edit: Edit
+    delete: Delete
+  
+  categories:
+    lifestyle: Lifestyle
+    breakingnews: Breaking News
+    politics: Politics
+    health: Health
+    sports: Sports
+
+  helpers:
+    submit:
+      create: "Create article"
+      submit: "Save article"
+      update: "Update article"
+
+    label:
+      article:
+        title: Title
+        lead: Lead
+        content: Content

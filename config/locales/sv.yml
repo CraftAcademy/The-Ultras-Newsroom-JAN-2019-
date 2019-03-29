@@ -1,4 +1,33 @@
 sv:
-  signout: Logga ut
-  login: Logga in
-  back: Tillbaka
+  titles:
+    editarticle: Redigera Artikeln
+    title: Titel
+    lead: Ingress
+    content: Innehåll
+
+  links:
+    signout: Logga ut
+    login: Logga in
+    back: Tillbaka
+    all: Alla
+    edit: Redigera
+    delete: Ta bort
+
+  categories:
+    lifestyle: Livsstil
+    breakingnews: Aktuella nyheter
+    politics: Politik
+    health: Hälsa
+    sports: Sport
+
+  helpers:
+    submit:
+      create: Skapa Artikeln
+      submit: Spara Artikeln
+      update: Uppdatera Artikeln
+
+    label:
+      article:
+        title: Titel
+        lead: Ingress
+        content: Innehåll

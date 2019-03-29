@@ -16,14 +16,14 @@ Feature: Journalist can create articles
         And I fill in "Title" with "Vikings living amongst us"
         And I fill in "Lead" with "Hurra"
         And I fill in "Content" with "Vad kul"
-        And I click "Save Article"
+        And I click "Save article"
         Then I should see "Article was successfully created."
 
     Scenario: Journalist can't create article [Sad path]
         When I visit the journalist new article page
         And I fill in "Title" with "Vikings living amongst us"
         And I fill in "Lead" with "Hurra"
-        And I click "Save Article"
+        And I click "Save article"
         Then I should see "You have to fill out all the fields"
 
     Scenario: Visitor can't create article [Sad path]
