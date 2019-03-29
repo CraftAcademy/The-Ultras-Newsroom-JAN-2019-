@@ -3,6 +3,11 @@ class Journalist::ArticlesController < ApplicationController
     before_action :authenticate_user!
     before_action :check_author, only: [:edit, :destroy, :update]
 
+    def index
+        @articles = current_user.articles
+        @notapproved = current_user.articles.where(approved: false) 
+    end
+
     def show
         @article = Article.find(params[:id])
     end
@@ -14,7 +19,7 @@ class Journalist::ArticlesController < ApplicationController
         article = Article.new(article_params)
         article.user = current_user
         if article.save
-            redirect_to new_journalist_article_path, notice: 'Article was successfully created.'
+            redirect_to journalist_articles_path, notice: 'Article was successfully created.'
         else
             redirect_to new_journalist_article_path, alert: 'You have to fill out all the fields'
         end
@@ -33,12 +38,12 @@ class Journalist::ArticlesController < ApplicationController
     def destroy
         if params[:deleteimage] == "true"
             @article.image.destroy
-            redirect_to articles_path, notice: 'Image was successfully deleted.'
+            redirect_to journalist_articles_path, notice: 'Image was successfully deleted.'
         else
             if @article.destroy
-                redirect_to articles_path, notice: 'Article was successfully deleted.'
+                redirect_to journalist_articles_path, notice: 'Article was successfully deleted.'
             else
-                redirect_to articles_path, notice: 'Article was not successfully deleted.'
+                redirect_to journalist_articles_path, notice: 'Article was not successfully deleted.'
             end
         end
     end

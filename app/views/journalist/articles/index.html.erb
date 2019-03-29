@@ -1,0 +1,29 @@
+<%= link_to "Create Article", new_journalist_article_path%>
+  
+<h1>Unpublished articles</h1>
+<ul class="journalist_articles_list">
+    <% @notapproved.each do |article|%>
+        <li class="journalist_articles_list_items">
+            <div id="<%= dom_id(article) %>">
+                <%=  link_to(journalist_article_path(article)) do %>
+                    <%= article.title %>
+                <% end %>
+                <%= article.created_at.strftime("Created %m/%d/%Y at %I:%M%p") %>                
+            </div>
+        </li>
+    <% end %>
+</ul>
+
+<h1>Published articles</h1>  
+<ul class="journalist_articles_list">
+    <% @articles.approved.each do |article|%>
+        <li class="journalist_articles_list_items">
+            <div id="<%= dom_id(article) %>">
+                <%=  link_to(journalist_article_path(article)) do %>
+                    <%= article.title %>                   
+                <% end %>
+                <%= article.created_at.strftime("Created %m/%d/%Y at %I:%M%p") %>                
+            </div>
+        </li>
+    <% end %>
+</ul>
