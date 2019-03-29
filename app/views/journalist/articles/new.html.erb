@@ -5,6 +5,7 @@
       <%= form.text_area :lead, required: true %>
       <%= form.label :content %>
       <%= form.text_area :content, required: true %>
+      <%= form.select(:category_ids, Category.all.collect {|p| [ p.name, p.id ] }) %>
       <%= form.submit %>
 <% end %>
 

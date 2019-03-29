@@ -63,6 +63,6 @@ class Journalist::ArticlesController < ApplicationController
     end
 
     def article_params
-        params.require(:article).permit(:title, :content, :lead, :image)
+        params.require(:article).permit(:title, :content, :lead, :category_ids, :image)
     end 
 end
