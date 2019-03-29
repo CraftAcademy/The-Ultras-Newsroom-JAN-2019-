@@ -8,20 +8,21 @@
                 <%=  link_to(journalist_article_path(article)) do %>
                     <%= article.title %>
                 <% end %>
-            <%= article.created_at.strftime("Created %m/%d/%Y at %I:%M%p") %>                
+                <%= article.created_at.strftime("Created %m/%d/%Y at %I:%M%p") %>                
             </div>
         </li>
     <% end %>
 </ul>
 
 <h1>Published articles</h1>  
-<ul class="published_list">
+<ul class="journalist_articles_list">
     <% @articles.approved.each do |article|%>
-        <li class="published_list_items">
+        <li class="journalist_articles_list_items">
             <div id="<%= dom_id(article) %>">
                 <%=  link_to(journalist_article_path(article)) do %>
                     <%= article.title %>                   
                 <% end %>
+                <%= article.created_at.strftime("Created %m/%d/%Y at %I:%M%p") %>                
             </div>
         </li>
     <% end %>

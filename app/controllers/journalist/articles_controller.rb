@@ -4,8 +4,8 @@ class Journalist::ArticlesController < ApplicationController
     before_action :check_author, only: [:edit, :destroy, :update]
 
     def index
-        @articles = Article.all.where(user_id: current_user.id)
-        @notapproved = Article.all.where(user_id: current_user.id, approved: false) 
+        @articles = current_user.articles
+        @notapproved = current_user.articles.where(approved: false) 
     end
 
     def show
